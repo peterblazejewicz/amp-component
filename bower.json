@@ -1,0 +1,12 @@
+{
+  "name": "amp-component",
+  "description": "An attempt to wrap Azure Media Services and AMP player with custom component. Based on the work of Paul Lewis (@aerotwist) for Google&#39;s PWA sample video player",
+  "main": "index.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  }
+}
