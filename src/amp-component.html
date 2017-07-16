@@ -1,6 +1,6 @@
-<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
 
-<dom-module id="amp-component-app">
+<dom-module id="amp-component">
   <template>
     <style>
       :host {
@@ -15,18 +15,18 @@
      * @customElement
      * @polymer
      */
-    class AmpComponentApp extends Polymer.Element {
-      static get is() { return 'amp-component-app'; }
+    class AmpComponent extends Polymer.Element {
+      static get is() { return 'amp-component'; }
       static get properties() {
         return {
           prop1: {
             type: String,
-            value: 'amp-component-app'
+            value: 'amp-component'
           }
         };
       }
     }
 
-    window.customElements.define(AmpComponentApp.is, AmpComponentApp);
+    window.customElements.define(AmpComponent.is, AmpComponent);
   </script>
 </dom-module>
