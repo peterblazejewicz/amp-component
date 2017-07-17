@@ -11,67 +11,22 @@
     <link rel="manifest" href="/manifest.json">
 
     <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-    <script src="//amp.azure.net/libs/amp/2.1.0/azuremediaplayer.min.js"></script>
     <link href="//amp.azure.net/libs/amp/2.1.0/skins/amp-flush/azuremediaplayer.min.css" rel="stylesheet">    
 
-    <!-- <link rel="import" href="/src/amp-component.html"> -->
+     <link rel="import" href="/src/amp-component.html"> 
     <style>
       * {
-        box-sizing: border-box;
+          box-sizing: border-box;
       }
       body {
         margin: 0;
         height: 100vh;
       }
       amp-component {
-        width: 640px;
-        height: 480px;
-      }
-      #amp-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-width: 640px;
-        min-height: 480px;
-        font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        outline: none;
-      }
-      #amp-player-container {
-        width: 100%;
-        margin: 0;
-        background-color: #000;
-        outline: none;
-      }
-      #amp-player-container .azuremediaplayer {
-        width: 100%;
-        position: relative;
-        margin: auto;
-        background-color: #3f3f3f;
-        min-height: 200px;
-      }
-      #amp-player-container .azuremediaplayer video {
-        min-height: 200px;
-        background-color: #3f3f3f;
       }
     </style>
   </head>
   <body>
-    <!-- <amp-component></amp-component> -->
-    <div id="amp-container">
-      <div id="amp-player-container" tabindex="0">
-          <video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls data-setup='{"nativeControlsForTouch": false, "fluid": true}'>
-              <source src="http://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest" type="application/vnd.ms-sstr+xml" />
-              <p class="amp-no-js">
-                  To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
-              </p>
-          </video>
-      </div>
-    </div>
+     <amp-component></amp-component> 
   </body>
 </html>
