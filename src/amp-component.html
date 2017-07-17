@@ -1,13 +1,44 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="./azure-media-services.html">
 
 <dom-module id="amp-component">
   <template>
-    <style>
-      :host {
-        display: block;
+    <style include="azure-media-services-style">
+       :host {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        height: 100%;
+        background: var(--azure-media-video-background, #000);
+        overflow: hidden;
+        position: relative;
+      }
+      #container {
+        flex: 0 0 auto;
+        transform-origin: center center;
+        position: relative;
+        will-change: transform;
+      }
+      #container > * {
+        width: 100%;
+        height: 100%;
+        flex: 0 0 auto;
+        transform-origin: center center;
+        position: relative;
+        will-change: transform;
+      }
+      video {
+        flex: 0 0 auto;
+        transform-origin: center center;
+        position: relative;
+        will-change: transform;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <div id="container">
+        <video id="video"></video>
+    </div> 
   </template>
 
   <script>
@@ -16,14 +47,47 @@
      * @polymer
      */
     class AmpComponent extends Polymer.Element {
-      static get is() { return 'amp-component'; }
-      static get properties() {
-        return {
-          prop1: {
-            type: String,
-            value: 'amp-component'
-          }
-        };
+      static get is() {
+        return 'amp-component';
+      }
+
+      constructor() {
+        super();
+      }
+
+      ready() {
+        super.ready();
+        console.log(this.ready.name);
+        let myPlayer = amp(this.$.video, { /* Options */
+          "nativeControlsForTouch": false,
+          autoplay: true,
+          controls: true,
+          fluid: true,
+          poster: ""
+        }, function () {
+          console.log('Good to go!');
+          console.log('fluid: '+ myPlayer.fluid);
+          myPlayer.fluid(true);
+          // add an event listener
+          this.addEventListener('ended', function () {
+            console.log('Finished!');
+          });
+        });
+        myPlayer.src([{
+          src: "https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
+          type: "application/vnd.ms-sstr+xml"
+        }]);
+
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        console.log(this.connectedCallback.name);
+      }
+
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        console.log(this.disconnectedCallback.name);
       }
     }
 
